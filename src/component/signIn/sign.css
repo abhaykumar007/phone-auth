@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.sign-main {
+  display: flex;
+  color: white;
+}
+.sign-details {
+  margin-top: 30vh;
+  margin-left: 10vw;
+}
+.sign-details h1 {
+  font-size: 62px;
+}
+.sign-details p {
+  font-size: 20px;
+}
+.sign-container {
+  padding-top: 5vh;
+  padding-bottom: 10vh;
+  width: 35vw;
+  /* color: white; */
+  background-color: rgba(0, 0, 0, 0.726);
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  margin-left: auto;
+  margin-right: 8vw;
+  margin-top: 10vh;
+}
+.sign-container input {
+  margin: 2vh;
+  font-size: 20px;
+  padding: 10px 0;
+  padding-right: 15vh;
+  border-radius: 7px;
+}
+
+.sign-container .sendOtp {
+  font-family: arial;
+  color: #000000 !important;
+  font-size: 15px;
+  text-shadow: 0px 0px 0px #7cacde;
+  box-shadow: 1px 1px 1px #bee2f9;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 0px solid #3866a3;
+  background: #aacfc9;
+  margin-top: 1vh;
+  margin-right: 32vh;
+  margin-bottom: 2vh;
+}
+.sign-container .sendOtp:hover {
+  color: #020f05 !important;
+  background: #53cf3a;
+}
+
+.sign-container .registration {
+  font-family: arial;
+  color: #ffffff !important;
+  font-size: 20px;
+  text-shadow: 0px 0px 0px #7cacde;
+  padding: 10px 25px;
+  border-radius: 25px;
+  border: none;
+  background: #f21127;
+  margin-top: 8vh;
+}
+.sign-container .registration:hover {
+  color: fffff !important;
+  background: #ad0e28;
+}

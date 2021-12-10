@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import "./style.css";
+import "./sign.css";
 import firebase from "../../firebase";
+import { useHistory } from "react-router-dom";
 
 export default function SignIn() {
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
-
+  const history = useHistory();
   const configureCap = () => {
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "sign-in-button",
@@ -33,12 +35,13 @@ export default function SignIn() {
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
         console.log("OTP sent");
+        alert("OTP sent");
         // ...
       })
       .catch((error) => {
         // Error; SMS not sent
         // ...
-        console.log("OTP not sent");
+        console.log("OTP not sent", error);
       });
   };
 
@@ -50,8 +53,12 @@ export default function SignIn() {
       .then((result) => {
         // User signed in successfully.
         const user = result.user;
+        // <Redirect to="/borrow" />;
         console.log(JSON.stringify(user));
-        alert("user is verified");
+        history.push("/borrow");
+        createUserDatabase();
+        // alert("user is verified");
+
         // ...
       })
       .catch((error) => {
@@ -60,23 +67,64 @@ export default function SignIn() {
         console.log("verification error");
       });
   };
+
+  const createUserDatabase = () => {
+    firebase.database().ref("user").push({
+      name,
+      phone,
+    });
+  };
   return (
-    <div>
-      <form onSubmit={onSignInSubmit}>
-        <div id="sign-in-button"></div>
-        <input
-          placeholder="Enter mobile no"
-          onChange={(e) => setPhone(e.target.value)}
-        />
-        <button>Submit</button>
-      </form>
-      <form onSubmit={onSubmitOTP}>
-        <input
-          placeholder="Enter OTP"
-          onChange={(e) => setOtp(e.target.value)}
-        />
-        <button>Submit</button>
-      </form>
+    <div className="sign-main">
+      <div className="sign-details">
+        <h1>
+          Looking for a<br />
+          same day Loan ??
+        </h1>
+        <p>
+          Here is the Solution.
+          <br />
+          Fill the form and get a loan in minutes.
+        </p>
+      </div>
+      <div className="sign-container">
+        <form onSubmit={onSignInSubmit}>
+          <input
+            className="Name"
+            placeholder="your name....."
+            onChange={(e) => setName(e.target.value)}
+          />
+          <div className="gender">
+            {/* <p>Gender</p> */}
+             <input type="radio" id="male" name="gender" />
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" />
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" />
+            <label for="other">Other</label>
+          </div>
+          <div id="sign-in-button"></div>
+          <input
+            placeholder="your mobile no....."
+            onChange={(e) => setPhone(e.target.value)}
+            className="mobile"
+          />
+          <br />
+          <button className="sendOtp">Send OTP</button>
+        </form>
+        <form onSubmit={onSubmitOTP}>
+          <input
+            placeholder="OTP..."
+            onChange={(e) => setOtp(e.target.value)}
+            className="otp"
+          />
+          <p>
+            To apply for Loan you need to first registor. <br /> Kindly fill the
+            form and click on Registration.
+          </p>
+          <button className="registration">Registration</button>
+        </form>
+      </div>
     </div>
   );
 }
