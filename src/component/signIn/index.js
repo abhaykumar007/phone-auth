@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./sign.css";
 import firebase from "../../firebase";
-import { useHistory } from "react-router-dom";
+import { useHistory, Redirect } from "react-router-dom";
 
 export default function SignIn() {
   const [name, setName] = useState("");
@@ -73,7 +73,12 @@ export default function SignIn() {
       name,
       phone,
     });
+    localStorage.setItem("user", name);
   };
+
+  if (localStorage.getItem("user")) {
+    <Redirect to="/showReq" />;
+  }
   return (
     <div className="sign-main">
       <div className="sign-details">
@@ -119,8 +124,8 @@ export default function SignIn() {
             className="otp"
           />
           <p>
-            To apply for Loan you need to first registor. <br /> Kindly fill the
-            form and click on Registration.
+            To apply for Loan you need to registor first. <br /> Then raised
+            request.
           </p>
           <button className="registration">Registration</button>
         </form>

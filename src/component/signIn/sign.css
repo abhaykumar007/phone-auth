@@ -55,7 +55,9 @@
   color: #020f05 !important;
   background: #53cf3a;
 }
-
+.sign-container p {
+  margin-top: 1vh;
+}
 .sign-container .registration {
   font-family: arial;
   color: #ffffff !important;
