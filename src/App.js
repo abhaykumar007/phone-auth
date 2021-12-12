@@ -11,8 +11,10 @@ import ShowReq from "./component/showReq.js";
 import Four0FOur from "./component/four0four";
 
 function App() {
-  const user = localStorage.getItem("user");
+  let user = localStorage.getItem("user");
+
   function PrivateRoute({ path, Component }) {
+    user = localStorage.getItem("user");
     return (
       <Route
         path={path}
@@ -28,7 +30,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={SignIn} />
           <PrivateRoute path="/borrow" Component={BorrowMoney} />
-          <Route path="/showReq" exact component={ShowReq} />
+          <PrivateRoute path="/showReq" Component={ShowReq} />
           <Route component={Four0FOur} />
         </Switch>
       </Router>

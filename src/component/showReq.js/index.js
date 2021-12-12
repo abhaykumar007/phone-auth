@@ -40,6 +40,9 @@ export default function ShowReq() {
     history.push("/");
   };
 
+  if (localStorage.getItem("user") === undefined) {
+    return history.push("/");
+  }
   return (
     <div className="showReq-container">
       <div className="showReq-header">

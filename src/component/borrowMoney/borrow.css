@@ -28,6 +28,9 @@
   border: none;
 }
 
+/* ::placeholder {
+  color: #000000;
+} */
 .container button {
   font-family: arial;
   color: #000000 !important;

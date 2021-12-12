@@ -53,10 +53,9 @@ export default function SignIn() {
       .then((result) => {
         // User signed in successfully.
         const user = result.user;
-        // <Redirect to="/borrow" />;
+        createUserDatabase();
         console.log(JSON.stringify(user));
         history.push("/borrow");
-        createUserDatabase();
         // alert("user is verified");
 
         // ...
@@ -76,7 +75,7 @@ export default function SignIn() {
     localStorage.setItem("user", name);
   };
 
-  if (localStorage.getItem("user")) {
+  if (localStorage.getItem("user") === undefined) {
     <Redirect to="/showReq" />;
   }
   return (
@@ -102,11 +101,11 @@ export default function SignIn() {
           <div className="gender">
             {/* <p>Gender</p> */}
              <input type="radio" id="male" name="gender" />
-            <label for="male">Male</label>
+            <label htmlFor="male">Male</label>
             <input type="radio" id="female" name="gender" />
-            <label for="female">Female</label>
+            <label htmlFor="female">Female</label>
             <input type="radio" id="other" name="gender" />
-            <label for="other">Other</label>
+            <label htmlFor="other">Other</label>
           </div>
           <div id="sign-in-button"></div>
           <input
