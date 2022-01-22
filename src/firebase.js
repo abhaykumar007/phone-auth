@@ -4,7 +4,6 @@ import "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyBfw8xumqPiQ4nVloMJA8SLMhn5g_3xCW8",
   authDomain: "borrow-request.firebaseapp.com",
-  databaseURL: "https://borrow-request-default-rtdb.firebaseio.com",
   projectId: "borrow-request",
   storageBucket: "borrow-request.appspot.com",
   messagingSenderId: "607403227664",

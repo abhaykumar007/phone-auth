@@ -50,7 +50,7 @@ export default function SignIn() {
       .confirm(code)
       .then((result) => {
         // User signed in successfully.
-        const user = result.user;
+        // const user = result.user;
         createUserDatabase();
         // console.log(JSON.stringify(user));
         history.push("/borrow");
