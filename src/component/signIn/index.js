@@ -55,12 +55,9 @@ export default function SignIn() {
         // console.log(JSON.stringify(user));
         history.push("/borrow");
         // alert("user is verified");
-
-        // ...
       })
       .catch((error) => {
         // User couldn't sign in (bad verification code?)
-        // ...
         console.log("verification error");
       });
   };
