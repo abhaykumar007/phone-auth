@@ -8,21 +8,21 @@ export default function SignIn() {
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState("");
   const history = useHistory();
-  const configureCap = () => {
+  const configureCap = (e) => {
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
       "sign-in-button",
       {
         size: "invisible",
         callback: (response) => {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
-          onSignInSubmit();
+          onSignInSubmit(e);
         },
       }
     );
   };
   const onSignInSubmit = (e) => {
     e.preventDefault();
-    configureCap();
+    configureCap(e);
 
     const phoneNumber = "+91" + phone;
     console.log(phoneNumber);
@@ -34,13 +34,11 @@ export default function SignIn() {
         // SMS sent. Prompt user to type the code from the message, then sign the
         // user in with confirmationResult.confirm(code).
         window.confirmationResult = confirmationResult;
-        console.log("OTP sent");
+        // console.log("OTP sent");
         alert("OTP sent");
-        // ...
       })
       .catch((error) => {
         // Error; SMS not sent
-        // ...
         console.log("OTP not sent", error);
       });
   };
@@ -54,7 +52,7 @@ export default function SignIn() {
         // User signed in successfully.
         const user = result.user;
         createUserDatabase();
-        console.log(JSON.stringify(user));
+        // console.log(JSON.stringify(user));
         history.push("/borrow");
         // alert("user is verified");
 
@@ -92,7 +90,7 @@ export default function SignIn() {
         </p>
       </div>
       <div className="sign-container">
-        <form onSubmit={onSignInSubmit}>
+        <form onSubmit={(e) => onSignInSubmit(e)}>
           <input
             className="Name"
             placeholder="your name....."
@@ -100,7 +98,7 @@ export default function SignIn() {
           />
           <div className="gender">
             {/* <p>Gender</p> */}
-             <input type="radio" id="male" name="gender" />
+            <input type="radio" id="male" name="gender" />
             <label htmlFor="male">Male</label>
             <input type="radio" id="female" name="gender" />
             <label htmlFor="female">Female</label>

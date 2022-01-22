@@ -31,7 +31,7 @@ export default function ShowReq() {
   const handelRaisedReq = () => {
     history.push("/borrow");
   };
-  console.log("ShowReq", msg);
+  // console.log("ShowReq", msg);
 
   // auth.signOut();
   const handelLogOut = () => {
