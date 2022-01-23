@@ -76,15 +76,10 @@ export default function SignIn() {
   return (
     <div className="sign-main">
       <div className="sign-details">
-        <h1>
-          Looking for a<br />
-          same day Loan ??
-        </h1>
-        <p>
-          Here is the Solution.
-          <br />
-          Fill the form and get a loan in minutes.
-        </p>
+        <h1>Looking for a</h1>
+        <h1> same day Loan ??</h1>
+        <p>Here is the Solution.</p>
+        <p>Fill the form and get a loan in minutes.</p>
       </div>
       <div className="sign-container">
         <form onSubmit={(e) => onSignInSubmit(e)}>
@@ -107,6 +102,7 @@ export default function SignIn() {
             placeholder="your mobile no....."
             onChange={(e) => setPhone(e.target.value)}
             className="mobile"
+            type="number"
           />
           <br />
           <button className="sendOtp">Send OTP</button>
@@ -116,11 +112,10 @@ export default function SignIn() {
             placeholder="OTP..."
             onChange={(e) => setOtp(e.target.value)}
             className="otp"
+            type="number"
           />
-          <p>
-            To apply for Loan you need to registor first. <br /> Then raised
-            request.
-          </p>
+          <p>To apply for Loan you need to registor first.</p>
+          <p> Then raised request.</p>
           <button className="registration">Registration</button>
         </form>
       </div>

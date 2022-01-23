@@ -67,12 +67,16 @@ export default function ShowReq() {
       </div>
 
       <div className="showReqFooterBtn">
-        <button className="raisedReqBTN" onClick={handelRaisedReq}>
-          Raised new Request
-        </button>
-        <button className="logOutBtn" onClick={handelLogOut}>
-          Log Out
-        </button>
+        <div>
+          <button className="raisedReqBTN" onClick={handelRaisedReq}>
+            Raised new Request
+          </button>
+        </div>
+        <div>
+          <button className="logOutBtn" onClick={handelLogOut}>
+            Log Out
+          </button>
+        </div>
       </div>
     </div>
   );

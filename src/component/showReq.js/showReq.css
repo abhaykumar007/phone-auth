@@ -8,14 +8,12 @@
 }
 .showReq-header h1 {
   color: whitesmoke;
-
   margin-left: auto;
   margin-right: auto;
 }
 .showReq-header button {
   margin-left: 2vh;
   color: rgba(6, 255, 6, 0.986) !important;
-  /* color: black; */
   font-weight: bold;
   font-size: 20px;
   border-radius: 15px;
@@ -26,12 +24,11 @@
 .showReq-header button:hover {
   color: #ffffff !important;
   background: #034e09;
-  /* font-weight: lighter; */
 }
 .showReq-main {
   margin-top: 7vh;
-  margin-right: 10vw;
-  margin-left: 10vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
   background-color: rgba(0, 0, 0, 0.438);
   color: white;
   display: grid;
@@ -93,4 +90,43 @@
 .showReqFooterBtn .logOutBtn:hover {
   color: black !important;
   background: #f12035;
+}
+@media screen and (max-width: 1000px) {
+  .showReq-main {
+    margin-top: 7vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 0;
+    border-radius: 18px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .showReq-main {
+    margin-top: 7vh;
+    margin-right: 10vw;
+    margin-left: 10vw;
+    background-color: rgba(0, 0, 0, 0.438);
+    color: white;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 5vh 0;
+    border-radius: 18px;
+  }
+  .showReq-container .showReqFooterBtn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+  }
+  .showReq-container .showReqFooterBtn .logOutBtn {
+    margin-top: 2vh;
+  }
 }

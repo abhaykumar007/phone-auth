@@ -30,6 +30,7 @@ export default function BorrowMoney() {
         <input
           placeholder="Borrow Amount"
           onChange={(e) => setAmount(e.target.value)}
+          type="number"
         />
         <input
           placeholder="Reason"
